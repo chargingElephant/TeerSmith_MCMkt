@@ -1,0 +1,16 @@
+{
+	"format_version": "1.16.0",
+	"render_controllers": {
+		"controller.render.standard_pistol": {
+			"textures": [
+				"Texture.standard_pistol"
+			],
+			"geometry": "Geometry.elephant_pistol",
+			"materials": [
+				{
+					"*": "Material.default"
+				}
+			]
+		}
+	}
+}

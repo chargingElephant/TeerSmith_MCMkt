@@ -1,0 +1,17 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Teer Smith Resource Pack",
+        "description": "Resources for the Teer Smith adventure world.",
+        "uuid": "d81e650c-bdcb-4f3e-8d0c-c734816b4cdc",
+        "version": [1,0,0],
+        "min_engine_version": [1,14,0]
+    },
+    "modules": [
+        {
+            "type": "resources",
+            "uuid": "6057236b-4a70-495f-ad19-7c885c7a8606",
+            "version": [1,0,0]
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+
+{
+    "format_version": "1.16",
+    "minecraft:item": {
+        "description": {
+            "identifier": "elephant:standard_pistol",
+            "category":"Equipment"
+            },    
+        "components": {
+            "minecraft:icon":"standard_pistol"            
+        }
+    }
+}

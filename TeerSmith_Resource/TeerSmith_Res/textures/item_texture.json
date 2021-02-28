@@ -1,0 +1,16 @@
+{
+    "resource_pack_name": "elephant",
+    "texture_name": "atlas.items",
+    "texture_data": {
+      // 2D item textures
+      "standard_pistol": {
+        "textures": "textures/items/standard_pistol"
+      },      
+      "fire_ball_item": {
+        "textures": "textures/items/redstone_pistol"
+      },
+      "elephant_bow":{
+        "textures": "textures/items/diamond_pistol"
+      }
+    }
+  }

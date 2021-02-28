@@ -1,0 +1,302 @@
+{
+    "format_version":"1.16.0",
+    "minecraft:entity":{
+        "description":{
+            "identifier": "minecraft:player",
+            "is_spawnable":false,
+            "is_summonable":false,
+            "is_experimental":false,
+            "scripts":{
+                "animate":[
+                  "standard_pistol_setup"
+                ]
+            },
+            "animations":{
+              "standard_pistol_setup":"controller.animation.standard_pistol_setup",
+              "standard_pistol_fire":"controller.animation.standard_pistol_fire"
+            }
+        },
+
+        "component_groups":{
+            "standard_pistol:scope_fire": {
+                "minecraft:spawn_entity": {
+                  "entities": [
+                    {
+                      "min_wait_time": 0,
+                      "max_wait_time": 0,
+                      "single_use": true,
+                      "spawn_entity": "elephant:pistol_projectile",
+                      "spawn_event": "fire:scope",
+                      "num_to_spawn": 1
+                    }
+                  ]
+                }
+            },
+            "standard_pistol:noscope_fire": {
+            "minecraft:spawn_entity": {
+                "entities": [
+                {
+                    "min_wait_time": 0,
+                    "max_wait_time": 0,
+                    "single_use": true,
+                    "spawn_entity": "elephant:pistol_projectile",
+                    "spawn_event": "fire:noscope",
+                    "num_to_spawn": 1
+                }
+                ]
+            }
+            },
+            "normal:scope": {
+            "minecraft:movement": {
+                "value": 0.07
+            }
+            },
+            "night_vision:enable": {
+            "minecraft:spell_effects": {
+                "add_effects": [
+                {
+                    "effect": "night_vision",
+                    "duration": 99999999,
+                    "visible": false,
+                    "amplifier": 255
+                }
+                ]
+            }
+            },
+            "night_vision:disable": {
+            "minecraft:spell_effects": {
+                "remove_effects": [
+                "night_vision"
+                ]
+            }
+            },
+            "minecraft:add_bad_omen": {
+            "minecraft:spell_effects": {
+                "add_effects": [
+                {
+                    "effect": "bad_omen",
+                    "duration": 6000,
+                    "display_on_screen_animation": true
+                }
+                ]
+            },
+            "minecraft:timer": {
+                "time": [ 0.0, 0.0 ],
+                "looping": false,
+                "time_down_event": {
+                "event": "minecraft:clear_add_bad_omen",
+                "target": "self"
+                }
+            }
+            },
+            "minecraft:clear_bad_omen_spell_effect": {
+            "minecraft:spell_effects": {
+            }
+            },
+            "minecraft:raid_trigger": {
+            "minecraft:raid_trigger": {
+                "triggered_event": {
+                "event": "minecraft:remove_raid_trigger",
+                "target": "self"
+                }
+            },
+            "minecraft:spell_effects": {
+                "remove_effects": "bad_omen"
+            }
+            }
+        },
+
+        "components":{
+            "minecraft:variant": { "value": 11 },
+            "minecraft:experience_reward": {
+              "on_death": "Math.Min(q.player_level * 7, 100)"
+            },
+            "minecraft:type_family": {
+              "family": [ "player" ]
+            },
+            "minecraft:is_hidden_when_invisible": {
+            },
+            "minecraft:loot": {
+              "table": "loot_tables/empty.json"
+            },
+            "minecraft:collision_box": {
+              "width": 0.6,
+              "height": 1.8
+            },
+            "minecraft:can_climb": {
+            },
+            "minecraft:movement": {
+              "value": 0.1
+            },
+            "minecraft:hurt_on_condition": {
+              "damage_conditions": [
+                {
+                  "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+                  "cause": "lava",
+                  "damage_per_tick": 4
+                }
+              ]
+            },
+            "minecraft:attack": {
+              "damage": 1
+            },
+            "minecraft:player.saturation": {
+              "value": 20
+            },
+            "minecraft:player.exhaustion": {
+              "value": 0,
+              "max": 4
+            },
+            "minecraft:player.level": {
+              "value": 0,
+              "max": 24791
+            },
+            "minecraft:player.experience": {
+              "value": 0,
+              "max": 1
+            },
+            "minecraft:breathable": {
+              "total_supply": 15,
+              "suffocate_time": -1,
+              "inhale_time": 3.75,
+              "generates_bubbles": false
+            },
+            "minecraft:nameable": {
+              "always_show": true,
+              "allow_name_tag_renaming": false
+            },
+            "minecraft:physics": {
+            },
+            "minecraft:pushable": {
+              "is_pushable": false,
+              "is_pushable_by_piston": true
+            },
+            "minecraft:insomnia": {
+              "days_until_insomnia": 3
+            },
+            "minecraft:rideable": {
+              "seat_count": 2,
+              "family_types": [
+                "parrot_tame"
+              ],
+              "pull_in_entities": true,
+              "seats": [
+                {
+                  "position": [ 0.4, -0.2, -0.1 ],
+                  "min_rider_count": 0,
+                  "max_rider_count": 0,
+                  "lock_rider_rotation": 0
+                },
+                {
+                  "position": [ -0.4, -0.2, -0.1 ],
+                  "min_rider_count": 1,
+                  "max_rider_count": 2,
+                  "lock_rider_rotation": 0
+                }
+              ]
+            },
+            "minecraft:scaffolding_climber": {},
+            "minecraft:environment_sensor": {
+              "triggers": [
+                {
+                  "filters": {
+                    "all_of": [
+                      {
+                        "test": "has_mob_effect",
+                        "subject": "self",
+                        "value": "bad_omen"
+                      },
+                      {
+                        "test": "is_in_village",
+                        "subject": "self",
+                        "value": true 
+                      }
+                    ]
+                  },
+                  "event": "minecraft:trigger_raid"
+                },
+                {
+                  "filters": {
+                    "all_of": [
+                      { "test": "has_tag", "subject": "self", "value": "reload", "operator": "==" }
+                    ]
+                  },
+                  "event": "trigger:reload"
+                },
+                {
+                  "filters": {
+                    "all_of": [
+                      { "test": "has_tag", "subject": "self", "value": "reload", "operator": "!=" }
+                    ]
+                  },
+                  "event": "trigger:onreload"
+                },
+                {
+                  "filters": {
+                    "all_of": [
+                      { "test": "is_sneaking", "subject": "self", "value": true },
+                      {
+                        "all_of": [
+                          { "test": "has_equipment", "subject": "self", "domain": "hand", "value": "elephant:standard_pistol_item" }
+                        ]
+                      }
+                    ]
+                  },
+                  "event": "standard_pistol:fire"
+                },
+                {
+                  "filters": {
+                    "all_of": [
+                      { "test": "has_equipment", "subject": "self", "domain": "head", "value": "equipment:night_vision", "operator": "==" }
+                    ]
+                  },
+                  "event": "enable:night_vision"
+                },
+                {
+                  "filters": {
+                    "all_of": [
+                      { "test": "has_equipment", "subject": "self", "domain": "head", "value": "equipment:night_vision", "operator": "!=" }
+                    ]
+                  },
+                  "event": "disable:night_vision"
+                }
+              ]
+            }
+
+        },
+
+        "events":{
+            "normal:scope": {
+                "add": {
+                "component_groups": [ "normal:scope" ]
+                }
+            },
+            "standard_pistol:fire": {
+                "sequence": [
+                  {
+                    "filters": {
+                    "test": "is_sneaking", "subject": "self", "value": true
+                    },
+                    "remove": {
+                      "component_groups": [ "standard_pistol:noscope_fire" ]
+                    },
+                    "add": {
+                    "component_groups": [ "standard_pistol:scope_fire" ]
+                    }
+                  },
+                  {
+                    "filters": {
+                    "test": "is_sneaking", "subject": "self", "value": false
+                    },
+                    "remove": {
+                      "component_groups": [ "standard_pistol:scope_fire" ]
+                    },
+                    "add": {
+                    "component_groups": [ "standard_pistol:noscope_fire" ]
+                    }
+                  }
+                ]
+            }
+        }
+    }
+}

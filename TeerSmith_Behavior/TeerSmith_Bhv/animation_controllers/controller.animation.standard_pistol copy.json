@@ -1,0 +1,45 @@
+{
+    "format_version": "1.16.0",
+    "animation_controllers": {
+      "controller.animation.standard_pistol_setup": {
+        "initial_state": "default",
+        "states": {
+          "default": {
+            "transitions": [
+              { "equipped": "q.get_equipped_item_name(0) == 'standard_pistol'" }
+            ]
+          },
+          "equipped": {
+            "on_entry": [
+					    "/playsound armor.equip_leather"
+            ],
+            "animations":["standard_pistol_fire"],
+            "transitions": [
+              { "default": "q.get_equipped_item_name(0) != 'standard_pistol'" }
+            ]
+          }
+        }
+      },
+      "controller.animation.standard_pistol_fire": {
+        "initial_state": "default",
+        "states": {
+          "default": {
+            "transitions": [
+              { "fire": "q.get_equipped_item_name(0) == 'standard_pistol' && q.is_using_item" }
+            ]
+          },
+          "fire": {
+            "on_entry": [
+              "/title @s actionbar Standard Pistol Fire",
+              "/playsound random.bow",
+              "/playsound random hit.chain",
+              "@s standard_pistol:fire"
+            ],
+            "transitions": [
+              { "default": "q.get_equipped_item_name(0) == 'standard_pistol' && !q.is_using_item" }
+            ]
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,27 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "elephant:pistol_projectile",
+      "materials": {
+        "default": "skeleton"
+      },
+      "textures": {
+        "default": "textures/projectiles/pistol_projectile"
+      },
+      "geometry": {
+        "default": "geometry.pistol_projectile"
+      },
+      "render_controllers": [ "controller.render.pistol_projectile" ],
+      "animations":{
+        "trail":"animation.pistol_projectile.trail"
+      },
+      "scripts":{
+        "animate":["trail"]
+      },
+      "particle_effects":{
+        "trail_particle":"elephant:pistol_projectile_particle"
+      }
+    }
+  }
+} 

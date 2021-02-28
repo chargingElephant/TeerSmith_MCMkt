@@ -1,0 +1,32 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "elephant:explodo_hound",
+        "materials": {
+          "default": "skeleton"
+        },
+        "textures": {
+          "default": "textures/enemies/explodo_hound"
+        },
+        "geometry": {
+          "default": "geometry.explodo_hound"
+        },
+        "animations": {
+            "walk": "animation.explodo_hound.walk",
+            "run": "animation.explodo_hound.run",
+            "ctrl": "controller.animation.explodo_hound"
+        },
+        "scripts": {
+          "animate": [
+            "ctrl"
+          ]
+        },
+        "render_controllers": [ "controller.render.explodo_hound"],
+        "spawn_egg": {
+            "base_color":"#2a1a25",
+            "overlay_color":"#ff1a40"
+        }
+      }
+    }
+  }

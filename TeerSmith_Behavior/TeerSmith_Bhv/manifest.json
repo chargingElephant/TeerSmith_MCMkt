@@ -1,0 +1,23 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Teer Smith Behavior Pack",
+        "description": "Behaviors for the Teer Smith adventure world.",
+        "uuid": "c5faada4-f58d-4c10-a24d-e91e3cc0c250",
+        "version": [1,0,0],
+        "min_engine_version": [ 1,14,0]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "b1a98136-3a29-4c69-948d-abb736ff97aa",
+            "version": [1,0,0]
+        }
+    ],
+    "dependencies": [
+        {
+            "uuid": "d81e650c-bdcb-4f3e-8d0c-c734816b4cdc",
+            "version": [1,0,0]
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+	"format_version": "1.16.0",
+	"animations": {
+		"animation.standard_pistol.first_person.hold": {
+			"loop": true,
+			"bones": {
+				"pistol": {
+					"rotation": [105, -60, 120],
+					"position": [0, 7, 21],
+					"scale": 0.9
+				}
+			}
+		}
+	}
+}

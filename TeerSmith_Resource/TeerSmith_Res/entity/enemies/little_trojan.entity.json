@@ -1,0 +1,36 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "elephant:little_trojan",
+        "materials": {
+          "default": "skeleton"
+        },
+        "textures": {
+          "default": "textures/enemies/little_trojan"
+        },
+        "geometry": {
+          "default": "geometry.little_trojan"
+        },
+        "animations": {
+          "walk": "animation.little_trojan.walk",
+          "attack": "animation.little_trojan.attack",
+          "attacking": "animation.little_trojan.attacking",
+          "ctrl": "controller.animation.little_trojan"
+        },
+        "scripts": {
+          "animate": [
+            "ctrl",
+            "look_at_target"
+          ]
+        },
+        "render_controllers": [ "controller.render.little_trojan" ],
+        "spawn_egg": {
+          "base_color":"#a7271d",
+          "overlay_color":"#c6d324"
+        },
+        "enable_attachables":true
+      }
+    }
+  }
+  

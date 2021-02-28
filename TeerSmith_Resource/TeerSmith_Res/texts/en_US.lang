@@ -1,0 +1,12 @@
+#Inventory Items
+item.elephant:standard_pistol.name=Standard Pistol
+item.elephant:fire_ball.name=Fire Ball
+
+#Entities
+entity.elephant:little_trojan.name=Little Trojan
+entity.elephant:explodo_hound.name=Explodo Hound
+entity.elephant:pistol_projectile.name=Pistol Round
+
+#Spawn Eggs
+item.spawn_egg.entity.elephant:little_trojan.name=Spawn Little Trojan
+item.spawn_egg.entity.elephant:explodo_hound.name=Spawn Explodo Hound

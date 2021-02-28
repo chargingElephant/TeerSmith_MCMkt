@@ -1,0 +1,41 @@
+{
+	"format_version" : "1.16.0",
+	"animation_controllers" : {
+		"controller.animation.little_trojan" : {
+			"initial_state" : "default",
+			"states" : {
+				"default" : {
+					"animations" : [
+						{
+							"walk" : "query.modified_move_speed"
+						}
+					],
+                    "transitions":[
+                        {
+                            "attacking": "query.is_angry"
+                        }
+                    ],
+					"blend_transition":0.1
+				},
+                "attacking":{
+                    "animations":["attacking"],
+                    "transitions":[
+                        {
+                            "attack":"variable.attack_time > 0"
+                        }
+                    ],
+					"blend_transition":0.1
+                },
+				"attack" : {
+					"animations" : [ "attack" ],
+					"transitions" : [ 
+						{
+							"default": "query.any_animation_finished"
+						}
+					],
+					"blend_transition":0.1
+				}
+			}
+		}
+	}
+}

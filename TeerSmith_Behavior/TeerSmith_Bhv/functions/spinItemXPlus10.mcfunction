@@ -1,0 +1,1 @@
+execute @s ~ ~ ~ tag @e[name=standard_pistol] add "Pistol"
